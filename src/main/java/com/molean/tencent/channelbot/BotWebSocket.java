@@ -87,7 +87,10 @@ public class BotWebSocket {
 
     public void stopHeartbeat() {
         if (heartbeatTask != null) {
-            heartbeatTask.cancel();
+            try {
+                heartbeatTask.cancel();
+            } catch (Exception ignored) {
+            }
         }
         heartbeatTask = null;
     }
